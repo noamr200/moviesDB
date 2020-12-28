@@ -4,7 +4,6 @@ import './ActorCard.css';
 function ActorCard(props) 
 {
 let a=props.Actor;
-console.log("actor "+a.image);
 return ( 
 <Card  className="ActorCard">
 <Card.Header>

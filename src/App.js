@@ -1,9 +1,7 @@
 import './App.css';
 import Actor from './models/Actor';
-import ActorCard from "./components/ActorCard";
 import CardArray from "./components/CardArray";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Row} from 'react-bootstrap';
 function App() {
   let a1=new Actor("Brad ","Pitt","https://m.media-amazon.com/images/M/MV5BMjA1MjE2MTQ2MV5BMl5BanBnXkFtZTcwMjE5MDY0Nw@@._V1_UX214_CR0,0,214,317_AL_.jpg",
   "https://www.imdb.com/name/nm0000093/","1963-12-18");
@@ -14,19 +12,13 @@ function App() {
     "https://m.media-amazon.com/images/M/MV5BMjE2NDY2NDc1Ml5BMl5BanBnXkFtZTcwNjAyMjkwOQ@@._V1_UY317_CR13,0,214,317_AL_.jpg", 
     "https://www.imdb.com/name/nm0000358/?ref_=nv_sr_srsg_0#actor" ,"1957-04-29");
   
-  let actorsChukuMuku=[a1,a2,a3];
-  console.log(actorsChukuMuku);
+  let actorsChukuMuku=[a1,a2,a3]; //JSON will be in the future
+ 
   return (
     <div className="App">
       <header className="App-header"> 
       
-     <div> <input type="text"/> </div> <br/> <br/>
-      <Row>
-      <ActorCard Actor={actorsChukuMuku[0]} />
-      <ActorCard Actor={actorsChukuMuku[1]} />
-      <ActorCard Actor={actorsChukuMuku[2]} />
-      </Row>
-      <CardArray arr={actorsChukuMuku}/>
+      <CardArray arr={actorsChukuMuku} />
       </header>
     </div>
   );
