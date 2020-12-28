@@ -13,7 +13,7 @@ function App() {
     "https://m.media-amazon.com/images/M/MV5BMjE2NDY2NDc1Ml5BMl5BanBnXkFtZTcwNjAyMjkwOQ@@._V1_UY317_CR13,0,214,317_AL_.jpg", 
     "https://www.imdb.com/name/nm0000358/?ref_=nv_sr_srsg_0#actor" ,"1957-04-29");
   
-  let Actors={a1,a2,a3};
+  let Actors=[a1,a2,a3];
   console.log(Actors);
   return (
     <div className="App">
