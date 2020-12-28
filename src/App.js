@@ -1,8 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
-import Actor from './models/actor';
+import Actor from './models/Actor';
+import ActorCard from "./components/ActorCard";
+import CardArray from "./components/CardArray";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Card } from 'react-bootstrap';
+import {Row} from 'react-bootstrap';
 function App() {
   let a1=new Actor("Brad ","Pitt","https://m.media-amazon.com/images/M/MV5BMjA1MjE2MTQ2MV5BMl5BanBnXkFtZTcwMjE5MDY0Nw@@._V1_UX214_CR0,0,214,317_AL_.jpg",
   "https://www.imdb.com/name/nm0000093/","1963-12-18");
@@ -13,17 +14,35 @@ function App() {
     "https://m.media-amazon.com/images/M/MV5BMjE2NDY2NDc1Ml5BMl5BanBnXkFtZTcwNjAyMjkwOQ@@._V1_UY317_CR13,0,214,317_AL_.jpg", 
     "https://www.imdb.com/name/nm0000358/?ref_=nv_sr_srsg_0#actor" ,"1957-04-29");
   
-  let Actors=[a1,a2,a3];
-  console.log(Actors);
+  let actorsChukuMuku=[a1,a2,a3];
+  console.log(actorsChukuMuku);
   return (
     <div className="App">
-      <header className="App-header">
-  
+      <header className="App-header"> 
+      
+     <div> <input type="text"/> </div> <br/> <br/>
+      <Row>
+      <ActorCard Actor={actorsChukuMuku[0]} />
+      <ActorCard Actor={actorsChukuMuku[1]} />
+      <ActorCard Actor={actorsChukuMuku[2]} />
+      </Row>
+      <CardArray arr={actorsChukuMuku}/>
       </header>
     </div>
   );
 }
 /*
+The page will include:
+
+A gallery of Actors. Each Actor can be implemented with a Bootstrap Card component. Each Actor will show an image, name and age. 
+Clicking on the Actor's name will open an IMDB page of the Actor (in a new tab).
+Filter gallery. Above the gallery there will be an input field. This will filter the actor gallery based on the actor's first and last name.
+Bonus: Sort gallery. Add a select box for sorting the the gallery. The options will be: first name, last name and age.
+Notes:
+
+Data should be hard coded.
+The gallery should be responsive.
+
 
     <Card style={{ width: '18rem' }}>
   <Card.Body>
