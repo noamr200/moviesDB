@@ -1,4 +1,3 @@
-import { Component } from "react";
 /*
 First name
 Last name
