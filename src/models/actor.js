@@ -7,7 +7,7 @@ IMDB link
 Age (a method that calculates the age based on the birthday)
 Create a class (not component) for an Actor.
 */
-class actor {
+class Actor {
     constructor(_fname,_lname,_image,_IMDBlink,_birthDate)
     {
         this.fname=_fname;
@@ -21,4 +21,4 @@ class actor {
         getAge = birthDate => Math.floor((new Date() - new Date(birthDate).getTime()) / 3.15576e+10);
     
 }
-export default actor;
+export default Actor;
