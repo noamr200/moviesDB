@@ -1,7 +1,6 @@
 import ActorCard from  "./ActorCard";
-import Actor from "../models/Actor";
 import { Row } from "react-bootstrap";
-import React, { useState } from 'react';
+import React from 'react';
 function CardArray(props)
 {
     let arr=props.arr;
@@ -11,19 +10,20 @@ function CardArray(props)
     const [searchType, setsearchType] = React.useState(FNAME);
     let carRows;
 
-    function filters(a,b)
+  function filters(a,b)
   {
     setactors(props.arr);
     let tmp=[];
     let str;
     let n;
-    if (b.length==0) 
+    if (b.length===0) 
     {
         setactors(props.arr);
         return;
     }
-   for (let i=0;i<a.length;++i)
-   {
+
+    for (let i=0;i<a.length;++i)
+    {
       str=searchType==FNAME?a[i].fname:a[i].lname;
       n=String(str).toLowerCase();
       var b1=String(b).toLowerCase();
@@ -32,34 +32,35 @@ function CardArray(props)
         tmp.push(a[i]);
       }
       setactors(tmp);
-   }
+    }
   }
 
-    function handleChanges(e)
-    {
-      setactors(props.arr);
-      filters(actors,e.target.value);
-      carRows = actors.map(arr1 =>  <ActorCard  key={arr.indexOf(arr1)} Actor={arr1}  />);
-     
-    }
+  function handleChanges(e)
+  {
+    setactors(props.arr);
+    filters(actors,e.target.value);
+    carRows = actors.map(arr1 =>  <ActorCard  key={arr.indexOf(arr1)} Actor={arr1}  />);
+  }
+
     const handleFilterChanges=(e) => {
         let n=e.target.value;
         setsearchType(n);
     };
-    function setactors(obj)
-    {
-        setActors(obj);
-    }
-    carRows = actors.map(arr1 => <ActorCard Actor={arr1}  />);
+
+  function setactors(obj)
+  {
+    setActors(obj);
+  }
+    carRows = actors.map(arr1 => <ActorCard   key={arr.indexOf(arr1)} Actor={arr1}  />);
    // const element = <Row> <ActorCard Actor={arr[0]}  /> <ActorCard Actor={arr[1]}  /> <ActorCard Actor={arr[2]}  /> </Row> ;
     return ( 
     <div>
-        
         <h3>Search Actor</h3>
         <div> <input type="text" onChange={handleChanges}/>  </div> 
         <p>Filter Type <select onChange={handleFilterChanges}><option value={FNAME} >First Name</option> <option value={LNAME}>Last Name</option> </select></p>
-        
         <h1>Actors</h1>
     <Row> {carRows}</Row> </div>);
 }
+
+
 export default CardArray;
