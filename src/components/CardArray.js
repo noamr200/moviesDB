@@ -4,7 +4,6 @@ import React from 'react';
 import axios from 'axios';
 function CardArray(props)
 {
-   // let arr=props.arr;
     const FNAME=0;
     const LNAME=1;
     const [actors, setActors] = React.useState([]);
@@ -31,7 +30,7 @@ function CardArray(props)
 
   function filters(a,b)
   {
- 
+    
     let tmp=[];
     let str;
     let n;
@@ -57,7 +56,6 @@ function CardArray(props)
 
   function handleChanges(e)
   {
-   
     filters(actors,e.target.value);
     carRows = actors.map((actor, index) => <ActorCard   key={index} Actor={actor}  />);
   }
@@ -72,8 +70,6 @@ function CardArray(props)
     setActors(obj);
   }
     carRows = actors.map((actor, index) => <ActorCard   key={index} Actor={actor}  />);
-   // const element = <Row> <ActorCard Actor={arr[0]}  /> <ActorCard Actor={arr[1]}  /> <ActorCard Actor={arr[2]}  /> </Row> ;
- 
     return ( 
     <div>
         <h3>Search Actor</h3>
