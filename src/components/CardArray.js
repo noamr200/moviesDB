@@ -1,24 +1,43 @@
 import ActorCard from  "./ActorCard";
 import { Row } from "react-bootstrap";
 import React from 'react';
+import axios from 'axios';
 function CardArray(props)
 {
-    let arr=props.arr;
+   // let arr=props.arr;
     const FNAME=0;
     const LNAME=1;
-    const [actors, setActors] = React.useState(props.arr);
+    const [actors, setActors] = React.useState([]);
     const [searchType, setsearchType] = React.useState(FNAME);
     let carRows;
+    function refresh() 
+    {
+      axios.get("actors.json").then(res=>{
+        console.log(res.data);
+        setActors(res.data);
+        carRows = actors.map((actor, index) => <ActorCard   key={index} Actor={actor}  />);
+         
+      });
+    }
+
+    React.useEffect(()=>{
+      axios.get("actors.json").then(res=>{
+        console.log(res.data);
+        setActors(res.data);
+        carRows = actors.map((actor, index) => <ActorCard   key={index} Actor={actor}  />);
+         
+      });
+  }, []);
 
   function filters(a,b)
   {
-    setactors(props.arr);
+ 
     let tmp=[];
     let str;
     let n;
     if (b.length===0) 
     {
-        setactors(props.arr);
+        refresh();
         return;
     }
 
@@ -32,14 +51,15 @@ function CardArray(props)
         tmp.push(a[i]);
       }
       setactors(tmp);
+      console.log(tmp);
     }
   }
 
   function handleChanges(e)
   {
-    setactors(props.arr);
+   
     filters(actors,e.target.value);
-    carRows = actors.map(arr1 =>  <ActorCard  key={arr.indexOf(arr1)} Actor={arr1}  />);
+    carRows = actors.map((actor, index) => <ActorCard   key={index} Actor={actor}  />);
   }
 
     const handleFilterChanges=(e) => {
@@ -51,8 +71,9 @@ function CardArray(props)
   {
     setActors(obj);
   }
-    carRows = actors.map(arr1 => <ActorCard   key={arr.indexOf(arr1)} Actor={arr1}  />);
+    carRows = actors.map((actor, index) => <ActorCard   key={index} Actor={actor}  />);
    // const element = <Row> <ActorCard Actor={arr[0]}  /> <ActorCard Actor={arr[1]}  /> <ActorCard Actor={arr[2]}  /> </Row> ;
+ 
     return ( 
     <div>
         <h3>Search Actor</h3>
