@@ -1,0 +1,30 @@
+@media only screen and (max-width: 600px) {
+    .MovieCard {
+        color:black;
+        background-color:white;
+        border: 1px solid rgba(0,0,0,.125);
+        border-radius: .25rem;
+        height: 400px !important;
+        width: 200px;
+        font-size:12px;
+    }
+    .MovieCard>img
+{
+    float:none !important;
+    height: 200px;
+    width: 200px;
+}
+  }
+.MovieCard
+{
+    color:black;
+    background-color:white;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    height: 280px;
+    width: 800px;
+}
+.MovieCard>img
+{
+    float:left;
+}
